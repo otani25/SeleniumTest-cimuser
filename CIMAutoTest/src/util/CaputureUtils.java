@@ -24,7 +24,7 @@ public class CaputureUtils {
         File scrFile = driver.getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(scrFile, new File(filePath));
-            LOG.log(Level.WARNING,"【CAPUTURE】"+filePath);
+            LOG.log(Level.FINE,"【CAPUTURE】"+filePath);
         } catch (IOException e) {
             LOG.log(Level.WARNING,"【CAPUTURE】IOException!!",e);
         }

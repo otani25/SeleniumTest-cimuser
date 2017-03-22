@@ -2,6 +2,8 @@ package test.common;
 
 import java.util.Properties;
 import java.util.function.Function;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -9,8 +11,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Predicate;
 
+import util.CaputureUtils;
+
 public abstract class CommonManager {
 
+	protected static Logger LOG = Logger.getLogger(CommonManager.class.getName()); 
+    
     protected String browserName;
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -34,13 +40,39 @@ public abstract class CommonManager {
         }
     }
     
-    public void waitUntil(ExpectedCondition<?> arg0){
+    /*
+     * waitUntil
+     * 
+     * @param ExpectedCondition arg0
+     * @param sleepTime
+     */
+    public void waitUntil(ExpectedCondition<?> arg0,int sleepTime){
     	try {
-			Thread.sleep(1000);
+			Thread.sleep(sleepTime);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	wait.until(arg0);
+    }
+    public void waitUntil(ExpectedCondition<?> arg0){
+    	waitUntil(arg0,1000);
+    }
+    
+    /*
+     * setLog
+     * 
+     * @param String message
+     * @param Level logLevel
+     */
+//    protected void setLog(Logger logger, String message,Level logLevel){
+//    	logger.log(logLevel, "【"+this.browserName+"】 "+message);
+//    }
+//    protected void setLog(Logger logger,String message){
+//    	setLog(logger,message,Level.INFO);
+//    }
+    
+    protected String getLogHeader(){
+    	return "【"+this.browserName+"】 ";
     }
 }
