@@ -19,7 +19,7 @@ public class CHCimUserLoginTest extends BrowserChromeDriver {
     @Override
     public void preTest() {
         super.preTest();
-        cimUserLogin = new CimUserLogin("Chrome", getDriver(), getTestInfo());
+        cimUserLogin = new CimUserLogin("Chrome", getDriver(), "testInfo/cimuser.properties");
     }
 
     // ログインのテスト

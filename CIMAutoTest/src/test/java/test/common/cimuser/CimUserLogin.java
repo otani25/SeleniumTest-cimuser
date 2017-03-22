@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import org.openqa.selenium.*;
 
-import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 import test.common.CommonManager;
@@ -17,8 +16,8 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 public class CimUserLogin extends CommonManager {
 	private static Logger LOG = Logger.getLogger(CimUserLogin.class.getName()); 
 	
-	public CimUserLogin(String browserName, WebDriver driver, Properties testInfo) {
-		super(browserName, driver, testInfo);
+	public CimUserLogin(String browserName, WebDriver driver, String testInfoPath) {
+		super(browserName, driver, testInfoPath);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -236,7 +235,7 @@ public class CimUserLogin extends CommonManager {
 	    driver.findElement(By.id("customerNo")).clear();
 	    driver.findElement(By.id("customerNo")).sendKeys(testInfo.getProperty("cimUserClient"));
 	    driver.findElement(By.name("btn1")).click();
-	    waitUntil(titleContains("利用者用ポータル - お知らせ一覧"),2000);
+	    waitUntil(titleContains("利用者用ポータル - お知らせ一覧"),3000);
 	    // 要素がわからないのでソース内検索
 	    assertTrue(driver.getPageSource().contains("ログインに失敗しました。") && 
 	    		   driver.getPageSource().contains("ログイン情報をご確認ください。"));

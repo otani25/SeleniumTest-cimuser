@@ -20,7 +20,7 @@ public class FFCimUserLoginTest extends BrowserFirefoxDriver {
     @Override
     public void preTest() {
         super.preTest();
-        cimUserLogin = new CimUserLogin("Firefox", getDriver(), getTestInfo());
+        cimUserLogin = new CimUserLogin("Firefox", getDriver(), "testInfo/cimuser.properties");
     }
     
 

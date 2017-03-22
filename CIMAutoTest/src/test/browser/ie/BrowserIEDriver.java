@@ -19,7 +19,7 @@ public abstract class BrowserIEDriver extends BrowserTestBase{
         setupProfile();
 
         // 作成したプロファイルでIE(のドライバー)を起動する
-        String driverPath = getTestInfo().getProperty("ieDriver");
+        String driverPath = getBrowserInfo().getProperty("ieDriver");
         if(driverPath.contains("http")){
             capabilities.setPlatform(Platform.WINDOWS);
             capabilities.setBrowserName("internet explorer");

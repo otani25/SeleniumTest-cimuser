@@ -21,7 +21,7 @@ public abstract class BrowserFirefoxDriver extends BrowserTestBase {
         profile = new FirefoxProfile();
         setupProfile();
 
-        String driverPath = getTestInfo().getProperty("firefoxDriver");
+        String driverPath = getBrowserInfo().getProperty("firefoxDriver");
         if(driverPath.contains("http")){
         	capabilities = DesiredCapabilities.firefox();
             capabilities.setPlatform(Platform.WINDOWS);

@@ -19,7 +19,7 @@ public class IECimUserLoginTest extends BrowserIEDriver {
     @Override
     public void preTest() {
         super.preTest();
-        cimUserLogin = new CimUserLogin("Firefox", getDriver(), getTestInfo());
+        cimUserLogin = new CimUserLogin("Firefox", getDriver(), "testInfo/cimuser.properties");
     }
 
 //    @Test
