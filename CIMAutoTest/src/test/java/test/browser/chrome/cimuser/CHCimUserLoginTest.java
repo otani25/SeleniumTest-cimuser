@@ -6,7 +6,7 @@ import test.browser.chrome.BrowserChromeDriver;
 import test.common.cimuser.CimUserLogin;
 
 /**
- * Chromeのログイン画面テスト
+ * Chromeのログインテスト
  */
 public class CHCimUserLoginTest extends BrowserChromeDriver {
 
@@ -19,18 +19,11 @@ public class CHCimUserLoginTest extends BrowserChromeDriver {
     @Override
     public void preTest() {
         super.preTest();
-        cimUserLogin = new CimUserLogin("Chrome", getDriver(), getTestInfo());
+        cimUserLogin = new CimUserLogin("Chrome", getDriver(), "testInfo/cimuser.properties");
     }
 
-    // ログインのテスト
-//    @Test
-//    public void userLogin() {
-//    	cimUserLogin.userLogin();
-//    }
-
-	@Override
-	protected String getinitialURL() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//  @Test
+//  public void testDebug(){
+//  	cimUserLogin.CIM_59();
+//  }
 }

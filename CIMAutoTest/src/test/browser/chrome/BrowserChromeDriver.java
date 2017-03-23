@@ -17,12 +17,11 @@ public abstract class BrowserChromeDriver extends BrowserTestBase {
     	capabilities = DesiredCapabilities.chrome();
         setupProfile();
 
-        // 作成したプロファイルでIE(のドライバー)を起動する
-        String driverPath = getTestInfo().getProperty("chromeDriver");
+        String driverPath = getBrowserInfo().getProperty("chromeDriver");
         capabilities = DesiredCapabilities.chrome();
         if(driverPath.contains("http")){
             capabilities.setPlatform(Platform.WINDOWS);
-            capabilities.setBrowserName("internet explorer");
+            capabilities.setBrowserName("chrome");
             try {
     			driver = new RemoteWebDriver(new URL(driverPath), capabilities);
     		} catch (MalformedURLException e) {
@@ -31,7 +30,7 @@ public abstract class BrowserChromeDriver extends BrowserTestBase {
     		}
         }
         else{
-          capabilities.setCapability("chrome.binary", getTestInfo().getProperty("chromeBinary"));
+          capabilities.setCapability("chrome.binary", getBrowserInfo().getProperty("chromeBinary"));
       	  System.setProperty("webdriver.chrome.driver", driverPath);
           driver = new ChromeDriver(capabilities);
         }

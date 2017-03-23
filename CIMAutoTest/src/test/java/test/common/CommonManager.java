@@ -1,5 +1,7 @@
 package test.common;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.function.Function;
 import java.util.logging.Level;
@@ -15,7 +17,7 @@ import util.CaputureUtils;
 
 public abstract class CommonManager {
 
-	protected static Logger LOG = Logger.getLogger(CommonManager.class.getName()); 
+	private static Logger LOG = Logger.getLogger(CommonManager.class.getName()); 
     
     protected String browserName;
     protected WebDriver driver;
@@ -23,12 +25,20 @@ public abstract class CommonManager {
     protected Properties testInfo;
     protected String baseURL;
 
-    public CommonManager(String browserName, WebDriver driver, Properties testInfo) {
+    public CommonManager(String browserName, WebDriver driver, String testInfoPath) {
         this.browserName = browserName;
         this.driver = driver;
-        this.testInfo = testInfo;
+        this.wait = new WebDriverWait(driver, 30);
+
+        // load browser properties
+        this.testInfo = new Properties();
+        try {
+        	this.testInfo.load(new FileInputStream(testInfoPath));
+        } catch (IOException e) {
+		    e.printStackTrace();
+		    return;
+		}
         this.baseURL = testInfo.getProperty("baseURL");
-        this.wait = new WebDriverWait(driver, 10);
     }
 
     public void beforeTestClass() {
@@ -59,19 +69,10 @@ public abstract class CommonManager {
     	waitUntil(arg0,1000);
     }
     
-    /*
-     * setLog
-     * 
-     * @param String message
-     * @param Level logLevel
+    /**
+     * getLogHeader
+     * @return
      */
-//    protected void setLog(Logger logger, String message,Level logLevel){
-//    	logger.log(logLevel, "【"+this.browserName+"】 "+message);
-//    }
-//    protected void setLog(Logger logger,String message){
-//    	setLog(logger,message,Level.INFO);
-//    }
-    
     protected String getLogHeader(){
     	return "【"+this.browserName+"】 ";
     }

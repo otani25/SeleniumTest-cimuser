@@ -15,15 +15,15 @@ import java.util.logging.LogManager;
 public abstract class BrowserTestBase {
 
     protected static WebDriver driver;
-    protected static Properties prop;
+    protected static Properties browserInfo;
     protected static DesiredCapabilities  capabilities;
 
     @BeforeClass
     public static void beforeClass() {
-        // load properties
-        prop = new Properties();
+        // load browser properties
+    	browserInfo = new Properties();
         try {
-		    prop.load(new FileInputStream("testdata.properties"));
+        	browserInfo.load(new FileInputStream("browserInfo.properties"));
         } catch (IOException e) {
 		    e.printStackTrace();
 		    return;
@@ -33,14 +33,12 @@ public abstract class BrowserTestBase {
             InputStream inStream = new FileInputStream("logging.properties");
             LogManager.getLogManager().readConfiguration(inStream);
         } catch (IOException | SecurityException ex) {
-            //Exceptionの記述
         }
     }
 
     @Before
     public void preTest() {
         if (driver != null) {
-//            return;
         	driver = null;
         }
         initDriver();
@@ -55,12 +53,10 @@ public abstract class BrowserTestBase {
         return driver;
     }
     
-    public static Properties getTestInfo() {
-    	return prop;
+    public static Properties getBrowserInfo() {
+    	return browserInfo;
     }
 
     abstract protected void initDriver();
-
-    abstract protected String getinitialURL();
 
 }

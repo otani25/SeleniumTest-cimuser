@@ -6,7 +6,7 @@ import test.browser.firefox.BrowserFirefoxDriver;
 import test.common.cimuser.CimUserLogin;
 
 /**
- * Firefoxの編集画面テスト
+ * FireFoxのログインテスト
  */
 public class FFCimUserLoginTest extends BrowserFirefoxDriver {
 
@@ -20,7 +20,7 @@ public class FFCimUserLoginTest extends BrowserFirefoxDriver {
     @Override
     public void preTest() {
         super.preTest();
-        cimUserLogin = new CimUserLogin("Firefox", getDriver(), getTestInfo());
+        cimUserLogin = new CimUserLogin("Firefox", getDriver(), "testInfo/cimuser.properties");
     }
     
 
@@ -69,13 +69,6 @@ public class FFCimUserLoginTest extends BrowserFirefoxDriver {
     @Test
     public void CIM_70(){
     	cimUserLogin.CIM_70();
-    }
+    }    
     
-    
-
-	@Override
-	protected String getinitialURL() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
