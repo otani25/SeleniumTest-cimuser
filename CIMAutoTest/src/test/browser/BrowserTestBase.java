@@ -59,6 +59,4 @@ public abstract class BrowserTestBase {
 
     abstract protected void initDriver();
 
-    abstract protected String getinitialURL();
-
 }

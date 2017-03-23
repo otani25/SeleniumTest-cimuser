@@ -19,7 +19,7 @@ public class IECimUserLoginTest extends BrowserIEDriver {
     @Override
     public void preTest() {
         super.preTest();
-        cimUserLogin = new CimUserLogin("Firefox", getDriver(), "testInfo/cimuser.properties");
+        cimUserLogin = new CimUserLogin("IE", getDriver(), "testInfo/cimuser.properties");
     }
 
 //    @Test
@@ -68,10 +68,4 @@ public class IECimUserLoginTest extends BrowserIEDriver {
     public void CIM_70(){
     	cimUserLogin.CIM_70();
     }
-
-	@Override
-	protected String getinitialURL() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

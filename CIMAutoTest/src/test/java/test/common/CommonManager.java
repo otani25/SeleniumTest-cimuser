@@ -17,7 +17,7 @@ import util.CaputureUtils;
 
 public abstract class CommonManager {
 
-	protected static Logger LOG = Logger.getLogger(CommonManager.class.getName()); 
+	private static Logger LOG = Logger.getLogger(CommonManager.class.getName()); 
     
     protected String browserName;
     protected WebDriver driver;
@@ -28,7 +28,7 @@ public abstract class CommonManager {
     public CommonManager(String browserName, WebDriver driver, String testInfoPath) {
         this.browserName = browserName;
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 10);
+        this.wait = new WebDriverWait(driver, 30);
 
         // load browser properties
         this.testInfo = new Properties();
