@@ -27,7 +27,7 @@ public abstract class CommonManager {
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected Properties testInfo;
-    protected String baseURL;
+    protected String baseUrl;
 
     /**
      * コンストラクタ
@@ -50,7 +50,7 @@ public abstract class CommonManager {
             e.printStackTrace();
             return;
         }
-        this.baseURL = testInfo.getProperty( "baseURL" );
+        this.baseUrl = testInfo.getProperty( "baseUrl" );
     }
 
     /**

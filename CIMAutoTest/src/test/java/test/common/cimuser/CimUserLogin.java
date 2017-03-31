@@ -32,7 +32,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン画面表示(URLに顧客管理番号なし)
      */
     public void CIM_19() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
         assertTrue( driver.findElements( By.id( "customerNo" ) ).size() > 0 );
 
@@ -46,7 +46,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン画面表示(URLに顧客管理番号あり)
      */
     public void CIM_20() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) + testInfo.getProperty( "accessCode" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) + testInfo.getProperty( "accessCode" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
         // customerNoが無い事を確認
         assertTrue( driver.findElements( By.id( "customerNo" ) ).size() == 0 );
@@ -60,7 +60,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン成功(URLに顧客管理番号なし)
      */
     public void CIM_22() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         driver.findElement( By.id( "loginId" ) ).clear();
@@ -81,7 +81,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン成功(URLに顧客管理番号あり)
      */
     public void CIM_58() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) + testInfo.getProperty( "accessCode" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) + testInfo.getProperty( "accessCode" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         driver.findElement( By.id( "loginId" ) ).clear();
@@ -100,7 +100,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(顧客管理番号)
      */
     public void CIM_60() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         driver.findElement( By.id( "loginId" ) ).clear();
@@ -123,7 +123,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(契約期間外)
      */
     public void CIM_59() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         // 契約期間外になっているユーザーでログイン
@@ -147,7 +147,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(ユーザID)
      */
     public void CIM_61() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         // 契約一時停止になっているユーザーでログイン
@@ -171,7 +171,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(アカウントステータス)
      */
     public void CIM_62() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         // アカウントステータス無効になっているユーザーでログイン
@@ -195,7 +195,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(パスワード有効期限)
      */
     public void CIM_69() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         // アカウントロックになっているユーザーでログイン
@@ -219,7 +219,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(アカウント有効期限)
      */
     public void CIM_70() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         // アカウントロックになっているユーザーでログイン
@@ -243,7 +243,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(契約一時停止)
      */
     public void CIM_110() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         // 契約一時停止になっているユーザーでログイン
@@ -267,7 +267,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(パスワード)
      */
     public void CIM_111() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         // 契約一時停止になっているユーザーでログイン
@@ -291,7 +291,7 @@ public class CimUserLogin extends CommonManager {
      * ログイン失敗(アカウントロック)
      */
     public void CIM_112() {
-        driver.get( baseURL + testInfo.getProperty( "accessPath" ) );
+        driver.get( baseUrl + testInfo.getProperty( "accessPath" ) );
         waitUntil( titleContains( "利用者用ポータル" ), 1000 );
 
         // アカウントロックになっているユーザーでログイン
